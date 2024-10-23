@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -10,16 +11,22 @@ public class Main {
         String nombre,genero;
         double altura;
 
-        System.out.print("Ingrese su edad años:");
-        edad= t.nextInt();
-        a.setEdad(edad);
-        System.out.print("Ingrese su peso en kilos sin gramos:");
-        peso= t.nextInt();
-        a.setPeso(peso);
-        System.out.print("Ingrese su Altura en metros:");
-        altura= t.nextDouble();
-        a.setAltura(altura);
-        t.nextLine();
+        try {
+            System.out.print("Ingrese su edad años: ");
+            edad = t.nextInt();
+            a.setEdad(edad);
+            System.out.print("Ingrese su peso en kilos sin gramos:");
+            peso= t.nextInt();
+            a.setPeso(peso);
+            System.out.print("Ingrese su Altura en metros:");
+            altura= t.nextDouble();
+            a.setAltura(altura);
+            t.nextLine();
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Ingrese un valor numérico valido.");
+            return;
+        }
+
         System.out.print("Ingrese su nombre por favor:");
         nombre= t.nextLine();
         a.setNombre(nombre);
